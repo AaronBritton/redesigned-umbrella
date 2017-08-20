@@ -1,0 +1,13 @@
+C:\Source\RemoveDirectories\RemoveDirectories\bin\Debug\RemoveDirectories.exe.config
+C:\Source\RemoveDirectories\RemoveDirectories\bin\Debug\RemoveDirectories.exe
+C:\Source\RemoveDirectories\RemoveDirectories\bin\Debug\RemoveDirectories.pdb
+C:\Source\RemoveDirectories\RemoveDirectories\obj\Debug\RemoveDirectories.csprojResolveAssemblyReference.cache
+C:\Source\RemoveDirectories\RemoveDirectories\obj\Debug\RemoveDirectories.csproj.CoreCompileInputs.cache
+C:\Source\RemoveDirectories\RemoveDirectories\obj\Debug\RemoveDirectories.exe
+C:\Source\RemoveDirectories\RemoveDirectories\obj\Debug\RemoveDirectories.pdb
+C:\Source\redesigned-umbrella\RemoveDirectories\RemoveDirectories\bin\Debug\RemoveDirectories.exe.config
+C:\Source\redesigned-umbrella\RemoveDirectories\RemoveDirectories\bin\Debug\RemoveDirectories.exe
+C:\Source\redesigned-umbrella\RemoveDirectories\RemoveDirectories\bin\Debug\RemoveDirectories.pdb
+C:\Source\redesigned-umbrella\RemoveDirectories\RemoveDirectories\obj\Debug\RemoveDirectories.csproj.CoreCompileInputs.cache
+C:\Source\redesigned-umbrella\RemoveDirectories\RemoveDirectories\obj\Debug\RemoveDirectories.exe
+C:\Source\redesigned-umbrella\RemoveDirectories\RemoveDirectories\obj\Debug\RemoveDirectories.pdb
