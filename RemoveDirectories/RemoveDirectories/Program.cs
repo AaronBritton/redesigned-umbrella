@@ -39,6 +39,10 @@ namespace RemoveDirectories
                 Environment.Exit(0);
             }
 
+            Console.WriteLine("Delete or View files to delete? ([V]/D)");
+            string viewFiles = Convert.ToString(Console.ReadLine());
+            Console.WriteLine();
+
             // Initialize
             string currentDirectory = Directory.GetCurrentDirectory();
             string[] subFolders = Directory.GetDirectories(currentDirectory);
@@ -61,21 +65,25 @@ namespace RemoveDirectories
                     if (!formsToKeep.Contains(formName))
                     {
                         //Delete the current directory
-                        DeleteDirectory(subSubFolder);
+                        bool passFiles = (viewFiles != "D") ? true : false;
+                        DeleteDirectory(subSubFolder, passFiles);
                     }
                 }
             }
 
-
             Console.ReadLine();
         }
 
-        public static void DeleteDirectory(string path)
+        public static void DeleteDirectory(string path, bool viewfiles)
         {
             if (Directory.Exists(path))
             {
                 Console.WriteLine("Deleting " + path);
-                // Directory.Delete(path, true);
+
+                if (!viewfiles)
+                {
+                    Directory.Delete(path, true);
+                }
             }
         }
     }
