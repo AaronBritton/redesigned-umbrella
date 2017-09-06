@@ -7,8 +7,93 @@
     <title>Bootstrap Cheatsheet</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- REMOVE MARGIN FROM BOTTOM OF NAV BAR -->
+    <style>
+      .navbar{
+        margin-bottom: 0px;
+      }
+    </style>
   </head>
   <body>
+      <!-- NAV BAR-->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!-- KEEP NAV BAR LINKS TO FAR LEFT OF SCREEN -->
+        <!--<div class="container-fluid">-->
+        <!-- KEEP NAR BAR LINKS IN LINE WITH BODY-->
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Bootstrap Cheatsheet</a>
+          </div>
+      
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <!-- SEARCH BOX AND BUTTON -->
+            <!--
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <!-- JUMBOTRON FULL WIDTH WITH TEXT INLINE WITH MAIN BODY -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Hello World!</h1>
+          <p>...</p>
+          <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn More</a></p>
+        </div>
+      </div>
+
+      <!-- JUMBOTRON INLINE WITH MAIN BODY OF TEXT-->
+      <div class="container">
+        <div class="jumbotron">
+          <h1>Hello World!</h1>
+          <p>...</p>
+          <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn More</a></p>
+        </div>
+      </div>
+
       <!-- TYPEOGRAPHY -->
       <div class="container">
         <h1 class="page-header">Hello world! <small>Secondary Text</small></h1>
@@ -177,7 +262,7 @@
               <label>
                 <input type="checkbox">Remember me?
               </label>
-              <button type="submit" class="btn btn-warning">Login</button>
+              <button type="submit" class="btn btn-primary">Login</button>
             </div>
           </form>
         </div>
@@ -259,7 +344,164 @@
             <hr>
 
             <!-- ALERTS -->
-            
+            <div class="alert">Default Alert</div>
+            <div class="alert alert-danger">Danger Alert</div>
+            <div class="alert alert-primary">Primary Alert</div>
+            <div class="alert alert-warning">Warning Alert</div>
+            <div class="alert alert-info">Info Alert</div>
+            <div class="alert alert-success">Success Alert</div>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+              You can close this alert.
+            </div>
+
+            <hr>
+
+            <!-- PROGRESS BARS -->
+            <div class="progress">
+              <div id="progress-bar-test" class="progress-bar progress-bar-success progress-bar-striped active" style="width:75%;">
+                75%
+              </div>
+            </div>
+
+            <hr>
+
+            <!-- LABELS -->
+            <span class="label label-default">Default</span>
+            <h1>Hello <span class="label label-primary">Primary</span></h1>
+            <span class="label label-success">Success</span>
+            <span class="label label-warning">Warning</span>
+            <span class="label label-info">Info</span>
+            <span class="label label-danger">Danger</span>
+
+            <!-- BADGES -->
+            <a href="#">Inbox <span class="badge">50</span></a>
+
+            <button class="btn btn-primary" type="button">
+              Messages <span class="badge">2</span>
+            </button>
+        </div>
+
+        <hr>
+
+        <!-- IMAGES -->
+        <div class="container">
+          <img class="thumbnail" src="http://via.placeholder.com/350x150">
+          <img class="img-rounded" src="http://via.placeholder.com/350x150"><br><br>
+          <img class="img-circle" src="http://via.placeholder.com/350x150">
+        </div>
+
+        <hr>
+
+        <!-- GRIDS -->
+        <div class="container">
+          <div class="row">
+            <!-- AN 4 COLUMN and 8 COLUMN LAYOUT -->
+            <div class="col-md-4 col-sm-4 col-xs-4">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+          </div>
+          <hr>
+          <!-- AN 8 COLUMN and 4 COLUMN LAYOUT -->
+          <div class="row">
+            <div class="col-md-8">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-4">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+          </div>
+          <hr>
+          <!-- 2 x 6 COLUMN LAYOUT -->
+          <div class="row">
+            <div class="col-md-6">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-6">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+          </div>
+          <hr>
+          <!-- 4 x 3 COLUMN LAYOUT -->
+          <div class="row">
+            <div class="col-md-3">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-3">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-3">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-3">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+          </div>
+          <hr>
+          <!-- 6 x 2 COLUMN LAYOUT -->
+          <div class="row">
+            <div class="col-md-2">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-2">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-2">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-2">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-2">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+            <div class="col-md-2">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam voluptates perspiciatis vitae quos voluptatem temporibus iure eligendi omnis vel.</p>
+            </div>
+          </div>
+          <hr>
+          <!-- 12 x 1 COLUMN LAYOUT -->
+          <div class="row">
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="col-md-1">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+          </div>
         </div>
 
         <div style="height:400px"></div>
