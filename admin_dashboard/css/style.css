@@ -108,6 +108,11 @@ color: #ffbbbc;
     text-align: center;
 }
 
+/* Account Login Title */
+.login-title{
+    text-align: center;
+}
+
 
 /* Footer */
 #footer{
