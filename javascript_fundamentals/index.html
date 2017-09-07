@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Learning Javascript</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Learning Javascript</h1>
+    </div>
+    <div class="container">
+      <button onClick="changeText(label1, label2, label3)">Click Me</button>
+      <label id="label1">You have clicked </label><label id="label2">0</label><label id="label3"> times</label>
+    </div>
+    
+    <script>
+      function changeText(id1, id2, id3){
+        var string1, string2;
+        id2.innerHTML = parseInt(id2.innerHTML) + 1;
+        if (parseInt(id2.innerHTML) == 1){
+          string1 = "You have only clicked ";
+          string2 = " time";
+        }else{
+          string1 = "You have clicked ";
+          string2 = " times";
+        }
+        id1.innerHTML = string1;
+        id3.innerHTML = string2;
+      }
+
+      var person = {
+        firstName: 'Aaron',
+        lastName: 'Britton',
+        age: 25,
+        pets: ['Pablo','Milo','Simba'],
+        address: {
+          street: '4c Worthing Road',
+          town: 'Patchway',
+          city: 'Bristol'
+        },
+        fullName: function(){
+          return this.firstName + ' ' + this.lastName;
+        }
+      }
+      console.log(person.fullName()+' is '+person.age+' years old');
+      console.log('who has '+person.pets.length + ' pets called ')
+      person.pets.forEach(function(pet){
+        if (pet == person.pets[person.pets.length-1]){
+          console.log('and '+pet)
+        }else{
+          console.log(pet);
+        }
+      });
+      console.log('who all live in '+person.address.town)
+
+      // Constructor Pattern
+      function Fruit(name, color, shape){
+        this.name = name;
+        this.color = color;
+        this.shape = shape;
+
+        this.describe = function(){
+          return 'The '+this.name+' is '+this.color+' and is '+this.shape;
+        }
+      }
+
+      var apple = new Fruit('apple','green','square');
+      var melon = new Fruit('melon','yellow','round')
+      console.log(apple);
+      console.log(melon.color);
+      console.log(apple.describe());
+    </script>
+  </body>
+</html>
