@@ -82,6 +82,10 @@ color: #ffbbbc;
     margin-bottom: 15px;
 }
 
+.deleteInTable{
+    margin-left: 10px !important;
+}
+
 /* Create Content Button */
 #header .create{
     padding-top: 20px;
@@ -101,6 +105,7 @@ color: #ffbbbc;
 .progress-bar{
     background: #333333;
     color: #ffffff;
+    min-width: 2em;
 }
 
 /* Website Overview Panels */
