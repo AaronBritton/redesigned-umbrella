@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Britton.Stock">
+
+    <Color x:Key="BackgroundDark">#111111</Color>
+    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}" />
+
+    <Color x:Key="BackgroundMedium">#252525</Color>
+    <SolidColorBrush x:Key="BackgroundMediumBrush" Color="{StaticResource BackgroundMedium}" />
+
+    <Color x:Key="BackgroundLight">#353535</Color>
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}" />
+
+    <Color x:Key="ForegroundMain">#c6c6c6</Color>
+    <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}" />
+
+    <Color x:Key="ForegroundYellow">#ffff00</Color>
+    <SolidColorBrush x:Key="ForegroundYellowBrush" Color="{StaticResource ForegroundYellow}" />
+
+    <Color x:Key="ForegroundPurple">#9a0089</Color>
+    <SolidColorBrush x:Key="ForegroundPurpleBrush" Color="{StaticResource ForegroundPurple}" />
+
+</ResourceDictionary>

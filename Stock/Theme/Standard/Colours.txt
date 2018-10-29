@@ -1,0 +1,7 @@
+Purple - #9a0089
+
+Grey - Light - #c6c6c6
+Grey - Medium - #252525
+Grey - Dark - #111111
+
+Yellow - #ffff00

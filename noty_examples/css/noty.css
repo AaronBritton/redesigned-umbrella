@@ -32,7 +32,8 @@
 #noty_layout__topRight {
   top: 20px;
   right: 20px;
-  width: 325px; }
+  width: 325px;
+  z-index: 999999999 }
 
 #noty_layout__bottom {
   bottom: 0;
@@ -648,3 +649,18 @@
   color: #fff; }
 
 /*# sourceMappingURL=noty.css.map*/
+
+.noty_type__reply {
+  position: relative;
+  padding: 0 10px 0 20px;
+  border-radius: 10px !important;
+  margin-top: 50px;
+}
+
+.noty_type__reply img {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  border-radius: 50%;
+}
