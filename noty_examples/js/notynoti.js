@@ -30,6 +30,26 @@ function successNoty(){
   }).show();
 }
 
+// Success Noty Notification in top-right corner of screen (with added timeout after 3 seconds)
+function successTimeoutNoty(){
+  new Noty({
+    text: 'Success Notification - I timeout after 3 seconds',
+    theme: 'relax',
+    type: 'success',
+    timeout: 3000,
+    closeWith: ['click', 'button']
+  }).show();
+}
+
+// Error Noty Notification in top-right of screen
+function errorNoty(){
+  new Noty({
+    text: "Error Notification - Click to acknowledge me",
+    type: 'error',
+    closeWith: ['click', 'button']
+  }).show();
+}
+
 // Timeout Noty Notification in the top-right corner of screen
 function timeouttrNoty(){
   new Noty({
