@@ -114,7 +114,7 @@
                                     
                                     <!-- Main Window Content -->
                                     <Border Grid.Row="2" Padding="{Binding InnerContentThickness}"
-                                            Background="{StaticResource BackgroundDarkBrush}">
+                                            Background="{StaticResource BackgroundLightBrush}">
                                         <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
                                 </Grid>
@@ -134,8 +134,8 @@
             GlassFrameThickness="0"
             />
     </WindowChrome.WindowChrome>
-    
-    <Grid Background="{StaticResource BackgroundDarkBrush}">
-        
+
+    <Grid>
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />
     </Grid>
 </Window>

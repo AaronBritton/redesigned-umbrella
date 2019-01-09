@@ -97,12 +97,12 @@ namespace Britton.Stock
         /// <summary>
         /// The smallest width the window can go
         /// </summary>
-        public double WindowMinimumWidth { get; set; } = 400;
+        public double WindowMinimumWidth { get; set; } = 550;
 
         /// <summary>
         /// The smallest height the window can go
         /// </summary>
-        public double WindowMinimumHeight { get; set; } = 400;
+        public double WindowMinimumHeight { get; set; } = 500;
 
         /// <summary>
         /// The padding of the inner content of the main window
@@ -112,7 +112,9 @@ namespace Britton.Stock
         /// <summary>
         /// The padding of the inner content of the main window
         /// </summary>
-        public Thickness InnerContentThickness { get { return new Thickness(InnerContent); } }
+        public Thickness InnerContentThickness { get { return new Thickness(0); } }
+
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 
