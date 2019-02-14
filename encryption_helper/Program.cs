@@ -9,8 +9,6 @@ namespace encryption_helper
     {
         static void Main(string[] args)
         {
-            var serviceCollection = new ServiceCollection();
-
             Console.WriteLine("Hi, Welcome to the Encryptor!");
             Console.WriteLine("Would you like to Encrypt or Decrypt today?");
             string type = Console.ReadLine();
@@ -64,7 +62,7 @@ namespace encryption_helper
     {
         private static string GetEncryptionPhrase()
         {
-            return "EHUSOGJNDGTW";
+            return "LkUYOR0zxaEZkpmHvRad385mPHw6Llm2";
         }
         public static string Encrypt(string phrase)
         {
