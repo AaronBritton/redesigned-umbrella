@@ -23,10 +23,11 @@ namespace Core
             for (var i = 0; i < tweets.Count(); i++)
             {
                 var tweet = tweets.ElementAt(i);
-                WriteLine($"Printing Tweet {i} of {tweets.Count()} ({tweet.Message.Length}) characters.");
+                WriteLine($"Printing Tweet {i+1} of {tweets.Count()} ({tweet.Message.Length}) characters.");
                 WriteLine(tweet.Message);
                 WriteLine();
             }
+            Console.ReadLine();
         }
     }
 }
