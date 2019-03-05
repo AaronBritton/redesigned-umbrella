@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Temp>$(SolutionDir)\packaging\</Temp>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <BootStrapFiles Include="$(Temp)hostpolicy.dll;$(Temp)$(ProjectName).exe;$(Temp)hostfxr.dll;"/>
+  </ItemGroup>
+
+  <!-- Builds the output as an executable -->
+  <Target Name="GenerateNetcoreExe"
+          AfterTargets="Build"
+          Condition="'$(IsNestedBuild)' != 'true'">
+    <RemoveDir Directories="$(Temp)" />
+    <Exec
+      ConsoleToMSBuild="true"
+      Command='dotnet build "$(ProjectPath)" -r win-x64 /p:CopyLocalLockFileAssemblies=false;IsNestedBuild=true --output "$(Temp)"' >
+      <Output TaskParameter="ConsoleOutput" PropertyName="OutputOfExec" />
+    </Exec>
+    <Copy
+      SourceFiles="@(BootStrapFiles)"
+      DestinationFolder="$(OutputPath)" />
+
+  </Target>
+
+</Project>
