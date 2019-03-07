@@ -18,11 +18,13 @@ namespace Core
         private readonly string _urlRegex;
         private readonly int _shortendUrlCharacterLength;
 
-        private int currentMessageIndex;
-        private int currentTweetIndex;
-        private int numberOfTweets;
+        private int _currentMessageIndex;
+        private int _numberOfTweets;
+        private int _numberOfMentions;
         private Tweet[] Tweets;
         private string[] tweetMessages;
+        private string[] tweetMentions;
+        private string mentions;
 
         #endregion
 
@@ -46,8 +48,7 @@ namespace Core
             _urlRegex = splitterConfiguration.UrlRegex;
             _shortendUrlCharacterLength = splitterConfiguration.ShortenedUrlCharacterLength;
 
-            currentTweetIndex = -1;
-            currentMessageIndex = 0;
+            _currentMessageIndex = 0;
         }
 
         #endregion
@@ -60,35 +61,39 @@ namespace Core
         /// <param name="message">The message to be split.</param>
         /// <returns>A series of tweets to be posted to Twitter, in the order in which they should be posted.</returns>
         public IEnumerable<Tweet> Split(string message)
-        {   
+        {
+            message = ExtractMentions(message);
+
+            _maximumTweetLength -= mentions.Length;
+
             while(true)
             {
-                if (currentMessageIndex + _maximumTweetLength >= message.Length)
+                if (_currentMessageIndex + _maximumTweetLength >= message.Length)
                 {
                     // Only one tweet remains.
-                    AddToTweetMessages(message.Substring(currentMessageIndex));
+                    AddToTweetMessages(message.Substring(_currentMessageIndex));
                     break;
                 }
                 else
                 {
                     // More than one tweet remain - Determine whether the last
                     // character within the current Tweet is valid.
-                    char endOfTweetCharacter = message[currentMessageIndex + _maximumTweetLength];
+                    char endOfTweetCharacter = message[_currentMessageIndex + _maximumTweetLength];
                     if (ValidEndOfTweetCharacter(endOfTweetCharacter))
                     {
                         // The last character is valid - add to list of Tweets
-                        AddToTweetMessages(message.Substring(currentMessageIndex, _maximumTweetLength));
+                        AddToTweetMessages(message.Substring(_currentMessageIndex, _maximumTweetLength));
                     }
                     else
                     {
                         // The last character of the current tweet is invalid - loop
                         // backwards until we find the first valid character.
-                        for (int j = currentMessageIndex + _maximumTweetLength; j > currentMessageIndex; j--)
+                        for (int j = _currentMessageIndex + _maximumTweetLength; j > _currentMessageIndex; j--)
                         {
                             endOfTweetCharacter = message[j];
                             if (ValidEndOfTweetCharacter(endOfTweetCharacter))
                             {
-                                AddToTweetMessages(message.Substring(currentMessageIndex, j-currentMessageIndex));
+                                AddToTweetMessages(message.Substring(_currentMessageIndex, j-_currentMessageIndex));
                                 break;
                             }
                         }
@@ -96,10 +101,10 @@ namespace Core
                 }
             }
 
-            if (numberOfTweets >= 0)
+            if (_numberOfTweets >= 0)
             {
 
-                Tweets = new Tweet[numberOfTweets];
+                Tweets = new Tweet[_numberOfTweets];
                 CreateTweets();
                 return Tweets;
             }
@@ -124,13 +129,65 @@ namespace Core
             return char.IsPunctuation(lastCharacter) || char.IsWhiteSpace(lastCharacter);
         }
 
+        /// <summary>
+        /// Extract out any mentions which are present within the tweet
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        private string ExtractMentions(string message)
+        {
+            string strippedOutMessage = message;
+            if (message.Contains("@"))
+            {
+                // There is atleast one mention present
+                var splitMessage = message.Split(' ');
+                bool foundAllStartingMentions = false;
+
+                foreach(string singleMessage in splitMessage)
+                {
+
+                    if (singleMessage[0] == '@')
+                    {
+                        AddToTweetMentions(singleMessage);
+                        if (!foundAllStartingMentions)
+                        {
+                            strippedOutMessage = strippedOutMessage.Substring(singleMessage.Length);                            
+                        }
+                    }
+                    else
+                    {
+                        foundAllStartingMentions = true;
+                    }
+                }
+            }
+
+            mentions = string.Join(' ', tweetMentions);
+
+            return strippedOutMessage;
+        }
+
+        /// <summary>
+        /// Add a mention to the list of required mentions
+        /// </summary>
+        /// <param name="mention">The mention to be added</param>
+        private void AddToTweetMentions(string mention)
+        {
+            _numberOfMentions++;
+            Array.Resize(ref tweetMentions, _numberOfMentions);
+            tweetMentions[_numberOfMentions - 1] = mention;
+        }
+
+        /// <summary>
+        /// Add a message to the list of required tweets
+        /// </summary>
+        /// <param name="message">The text of an single tweet</param>
         private void AddToTweetMessages(string message)
         {
-            numberOfTweets++;
-            Array.Resize(ref tweetMessages, numberOfTweets);
-            tweetMessages[numberOfTweets-1] = message;
+            _numberOfTweets++;
+            Array.Resize(ref tweetMessages, _numberOfTweets);
+            tweetMessages[_numberOfTweets-1] = message.Trim();
 
-            currentMessageIndex += message.Length;
+            _currentMessageIndex += message.Length;
         }
 
         /// <summary>
@@ -139,6 +196,7 @@ namespace Core
         /// <param name="message">The message to be tweeted</param>
         private void CreateTweets()
         {
+            int currentTweetIndex = -1;
             foreach (string message in tweetMessages)
             {
                 if (currentTweetIndex == 0)
@@ -149,12 +207,12 @@ namespace Core
                 currentTweetIndex++;
 
                 //// Resize the Tweets array if required
-                //if (currentTweetIndex >= numberOfTweets - 1)
+                //if (currentTweetIndex >= _numberOfTweets - 1)
                 //{
-                //    Array.Resize(ref Tweets, numberOfTweets++);
+                //    Array.Resize(ref Tweets, _numberOfTweets++);
                 //}
 
-                var tweetMessage = Formatter(currentTweetIndex + 1, numberOfTweets, "", message, currentTweetIndex == 0 ? "" : _continuationText, currentTweetIndex == numberOfTweets-1 ? "" : _continuesText);
+                var tweetMessage = Formatter(currentTweetIndex + 1, _numberOfTweets, mentions, message, currentTweetIndex == 0 ? "" : _continuationText, currentTweetIndex == _numberOfTweets-1 ? "" : _continuesText);
 
                 Tweets[currentTweetIndex] = new Tweet(tweetMessage);
             }

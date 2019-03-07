@@ -2,7 +2,7 @@
   "profiles": {
     "Core": {
       "commandName": "Project",
-      "commandLineArgs": "\"Without requirements or design, programming is the art of adding bugs to an empty text file.\""
+      "commandLineArgs": "\"@user1 You will need to speak to @user2 about this\""
     }
   }
 }
