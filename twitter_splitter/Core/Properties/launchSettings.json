@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Core": {
+      "commandName": "Project",
+      "commandLineArgs": "\"@user1 You will need to speak to @user2 about this\""
+    }
+  }
+}
